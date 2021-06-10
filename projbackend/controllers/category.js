@@ -1,5 +1,7 @@
 const Category = require("../models/category");
 
+
+//get category
 exports.getCategoryById = (req, res, next, id) => {
   Category.findById(id).exec((err, cate) => {
     if (err) {
@@ -12,6 +14,7 @@ exports.getCategoryById = (req, res, next, id) => {
   });
 };
 
+//Create Category
 exports.createCategory = (req, res) => {
   const category = new Category(req.body);
   category.save((err, category) => {
@@ -24,10 +27,12 @@ exports.createCategory = (req, res) => {
   });
 };
 
+//to return single category
 exports.getCategory = (req, res) => {
   return res.json(req.category);
 };
 
+//to return multiple category
 exports.getAllCategory = (req, res) => {
   Category.find().exec((err, categories) => {
     if (err) {
@@ -39,6 +44,7 @@ exports.getAllCategory = (req, res) => {
   });
 };
 
+//update category
 exports.updateCategory = (req, res) => {
   const category = req.category;
   category.name = req.body.name;
@@ -53,6 +59,7 @@ exports.updateCategory = (req, res) => {
   });
 };
 
+//remove category
 exports.removeCategory = (req, res) => {
   const category = req.category;
 

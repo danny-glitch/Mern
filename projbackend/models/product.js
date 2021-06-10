@@ -24,7 +24,7 @@ const productSchema = new mongoose.Schema(
         },
         category: {
             type: ObjectId,
-            ref: "Catrgory",
+            ref: "Category",
             required: true
         },
         stock:{
